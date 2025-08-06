@@ -20,7 +20,6 @@ if ($resultData->num_rows > 0) {
     $adminEmail = $row2['email'];
 }
 
-
 ?>
 <!doctype html>
 <html lang="en">
