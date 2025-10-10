@@ -78,222 +78,237 @@ if ($resultData->num_rows > 0) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* Custom CSS to decrease font size of the table */
+        /* ==========================================================
+   UNIFIED NICEADMIN STYLING FOR ALL WORKORDER FILTER PAGES
+   Author: ChatGPT (for Mezan WMS Project)
+   ========================================================== */
 
-        .overflow-auto {
-            overflow: auto !important;
-            margin-top: 92px !important;
-        }
+   /* ===== Remove extra empty space above filters ===== */
+main.main {
+  margin-top: 20px !important; /* reduce global top space */
+  padding-top: 0 !important;
+}
 
-        .add {
-            /* cursor: pointer; */
-            margin-left: 976px;
-            margin-top: 85px;
-            margin-bottom: 103px;
-        }
+.cardBranch {
+  margin-top: 20px !important; /* reduce card gap */
+}
 
-        /* Basic styling for search bar */
-        input.btn.btn-success {
-            margin-left: 7px;
-            height: 41px;
-            padding: 2%;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            text-align: center;
-            justify-items: center;
+.card-body > form {
+  margin-top: 0 !important;    /* remove top gap inside filter box */
+  padding-top: 0 !important;
+}
 
-        }
+.row.mb-3:first-of-type {
+  margin-top: 0 !important;    /* title/add button row */
+}
 
-        .search-container {
-            margin: 50px;
-            margin-left: 320px;
-            margin-bottom: 3px !important;
-        }
+.row.g-3.mb-3 {
+  margin-top: 0 !important;    /* search filter form row */
+}
 
-        #main {
+/* =============== GENERAL CARD LAYOUT =============== */
+.cardBranch {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(1, 41, 112, 0.08) !important;
+  background: #fff !important;
+  font-size: 0.9rem;
+  margin-top: 90px !important;
+  padding: 25px !important;
+}
 
-            margin-top: 0 !important;
-        }
+.cardBranch h5.card-title {
+  color: #012970;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
 
-        input[type="text"] {
-            padding: 8px;
-            font-size: 0.9rem;
-            width: 363px;
-        }
+.cardBranch .btn-primary {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 6px 16px;
+}
 
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
+/* =============== FILTER FORM STYLING =============== */
+form.row.g-3 {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 10px;
+}
 
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+form.row.g-3 .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #012970;
+}
 
-        }
+form.row.g-3 .form-control,
+form.row.g-3 .form-select {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border-color: #ced4da;
+  transition: border-color 0.2s ease-in-out;
+}
 
-        .barcode {
-            height: 55px;
-            width: 250px;
-            position: relative;
-            left: -38px;
-        }
+form.row.g-3 .form-control:focus,
+form.row.g-3 .form-select:focus {
+  border-color: #4154f1;
+  box-shadow: 0 0 0 0.15rem rgba(65, 84, 241, 0.2);
+}
 
-        /* 
-        #main {
-            margin-top: 20px !important;
-            padding: 20px 30px;
-            transition: all 0.3s;
-        } */
+form.row.g-3 .btn {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+/* Button color harmony */
+form.row.g-3 .btn-primary {
+  background-color: #4154f1;
+  border-color: #4154f1;
+}
+form.row.g-3 .btn-primary:hover {
+  background-color: #2932a3;
+}
+form.row.g-3 .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #fff;
+}
+form.row.g-3 .btn-info:hover {
+  background-color: #0bb1d6;
+}
+form.row.g-3 .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+form.row.g-3 .btn-secondary:hover {
+  background-color: #5a6268;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+/* =============== TABLE STYLING =============== */
+.table {
+  border-collapse: collapse !important;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.table thead th {
+  background-color: #000 !important;  /* 🖤 Black header */
+  color: #fff !important;              /* 🤍 White text */
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 10px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody td {
+  vertical-align: middle !important;
+  text-align: center;
+  padding: 10px 12px;
+  color: #212529;
+}
+
+/* Zebra striping and hover effect */
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+.table tbody tr:hover {
+  background-color: #eef1f7;
+}
+
+/* Action buttons inside table */
+.table .btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+/* No results message */
+p.text-center.mt-3 {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* =============== PAGINATION + DATATABLE UI =============== */
+.datatable-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.datatable-dropdown label {
+  font-size: 0.85rem;
+}
+
+.datatable-bottom {
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+.datatable-bottom .datatable-pagination-list button {
+  border-radius: 6px !important;
+}
+
+/* =============== BUTTON & TITLE ALIGNMENT =============== */
+.row.mb-3 {
+  align-items: center;
+}
+
+.col-6.text-end.mt-2 button {
+  height: 38px;
+}
+
+/* =============== RESPONSIVE FIXES =============== */
+@media (max-width: 992px) {
+  form.row.g-3 {
+    padding: 15px;
+  }
+  .table thead {
+    font-size: 0.85rem;
+  }
+  .cardBranch {
+    margin-top: 70px !important;
+    padding: 15px !important;
+  }
+  .btn {
+    font-size: 0.85rem;
+  }
+}
+
+/* =============== OPTIONAL DARK MODE SUPPORT =============== */
+@media (prefers-color-scheme: dark) {
+  .cardBranch {
+    background: #1e1e2d !important;
+    color: #f8f9fa;
+  }
+  .table thead th {
+    background-color: #212529 !important;
+  }
+  .table tbody tr:nth-child(even) {
+    background-color: #2c2c3a;
+  }
+  .table tbody tr:hover {
+    background-color: #353545;
+  }
+  form.row.g-3 {
+    background: #2a2a3b;
+    border-color: #444;
+  }
+  .form-label {
+    color: #e0e0e0;
+  }
+}
 
 
-        /* Define the pulse animation */
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
-
-        }
-
-        #fixedButtonBranch {
-            position: relative;
-            top: 110px;
-            left: 1187px;
-        }
-
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
-
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
-
-        .card-body {
-            padding: 0 20px 20px 18px !important;
-        }
-
-
-        /* Define the pulse animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Define the click animation */
-        @keyframes clickEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(0.9);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .company-name {
-            color: #000;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .mt-4 {
-            margin-top: 1.5rem !important;
-            margin-right: 214px;
-        }
-
-        .datatable-dropdown label {
-            font-size: 0.9rem;
-        }
-
-        .datatable-info {
-            display: none;
-        }
-
-        .datatable-top {
-            width: 942px;
-
-        }
-
-        /* Card */
-        .cardBranch {
-            margin-bottom: 30px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-            background-color: white;
-            font-size: 0.8rem;
-            margin-top: 7px;
-        }
-
-        .company-name:active {
-            animation: clickEffect 0.s ease;
-            /* Apply the click effect animation on click */
-            color: #0056b3;
-            /* Darken color on click */
-        }
-
-        * {
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-        }
-
-        .req_span {
-            font-size: 10px;
-        }
-
-        .req_auth_span {
-            font-size: 10px;
-        }
     </style>
 
     <title>Pickup Workorders</title>

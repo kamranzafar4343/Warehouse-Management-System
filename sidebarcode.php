@@ -33,7 +33,7 @@
             </li><!-- End Items Nav -->
 
             <li class="nav-item">
-                <a class="nav-link <?php echo ($currentPage == 'order.php' || $currentPage == 'pickup.php' || $currentPage == 'permout.php' || $currentPage == 'destroy.php' || $currentPage == 'access.php' || $currentPage == 'supplies.php') ? 'active' : 'collapsed'; ?>" data-bs-toggle="collapse" data-bs-target="#forms-nav" href="#">
+                <a class="nav-link <?php echo ($currentPage == 'order.php' || $currentPage == 'pickup.php' || $currentPage == 'permout.php' || $currentPage == 'destroy.php') ? 'active' : 'collapsed'; ?>" data-bs-toggle="collapse" data-bs-target="#forms-nav" href="#">
                     <i class="ri-list-ordered"></i><span>Work Orders</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -50,12 +50,6 @@
                         </a>
                         <a class="nav-link <?php echo ($currentPage == 'destroy.php') ? 'active' : ''; ?>" href="destroy.php">
                             <i class="bi bi-circle"></i><span>Destroy</span>
-                        </a>
-                        <a class="nav-link <?php echo ($currentPage == 'access.php') ? 'active' : ''; ?>" href="access.php">
-                            <i class="bi bi-circle"></i><span>Access</span>
-                        </a>
-                        <a class="nav-link <?php echo ($currentPage == 'supplies.php') ? 'active' : ''; ?>" href="supplies.php">
-                            <i class="bi bi-circle"></i><span>Supplies</span>
                         </a>
                     </li>
                 </ul>

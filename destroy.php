@@ -78,222 +78,245 @@ if ($resultData->num_rows > 0) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* Custom CSS to decrease font size of the table */
+/* =====================================================
+   WMS - UNIFIED WORKORDER PAGES (Pickup / Destroy / etc.)
+   Author: ChatGPT (for Mezan Group)
+   Clean NiceAdmin Bootstrap 5 Styling – No PHP changes
+   ===================================================== */
+/* ===== Remove extra empty space above filters ===== */
+main.main {
+  margin-top: 20px !important; /* reduce global top space */
+  padding-top: 0 !important;
+}
 
-        .overflow-auto {
-            overflow: auto !important;
-            margin-top: 92px !important;
-        }
+.cardBranch {
+  margin-top: 20px !important; /* reduce card gap */
+}
 
-        .add {
-            /* cursor: pointer; */
-            margin-left: 976px;
-            margin-top: 85px;
-            margin-bottom: 103px;
-        }
+.card-body > form {
+  margin-top: 0 !important;    /* remove top gap inside filter box */
+  padding-top: 0 !important;
+}
 
-        /* Basic styling for search bar */
-        input.btn.btn-success {
-            margin-left: 7px;
-            height: 41px;
-            padding: 2%;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            text-align: center;
-            justify-items: center;
+.row.mb-3:first-of-type {
+  margin-top: 0 !important;    /* title/add button row */
+}
 
-        }
+.row.g-3.mb-3 {
+  margin-top: 0 !important;    /* search filter form row */
+}
 
-        .search-container {
-            margin: 50px;
-            margin-left: 320px;
-            margin-bottom: 3px !important;
-        }
+/* ========== GENERAL LAYOUT & CARD ========== */
+.cardBranch {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(1, 41, 112, 0.1) !important;
+  background-color: #fff !important;
+  margin-top: 90px !important;
+  padding: 25px !important;
+  font-size: 0.9rem;
+}
 
-        #main {
+.cardBranch h5.card-title {
+  color: #012970;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
 
-            margin-top: 0 !important;
-        }
+.row.mb-3 {
+  align-items: center;
+}
 
-        input[type="text"] {
-            padding: 8px;
-            font-size: 0.9rem;
-            width: 363px;
-        }
+.col-6.text-end.mt-2 button {
+  height: 38px;
+}
 
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
+/* ========== FILTER FORM ========== */
+form.row.g-3 {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 10px;
+}
 
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+form.row.g-3 .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #012970;
+}
 
-        }
+form.row.g-3 .form-select,
+form.row.g-3 .form-control {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border-color: #ced4da;
+}
 
-        .barcode {
-            height: 55px;
-            width: 250px;
-            position: relative;
-            left: -38px;
-        }
+form.row.g-3 .form-select:focus,
+form.row.g-3 .form-control:focus {
+  border-color: #4154f1;
+  box-shadow: 0 0 0 0.15rem rgba(65, 84, 241, 0.25);
+}
 
-        /* 
-        #main {
-            margin-top: 20px !important;
-            padding: 20px 30px;
-            transition: all 0.3s;
-        } */
+/* Filter buttons */
+form.row.g-3 .btn {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 6px 14px;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+form.row.g-3 .btn-primary {
+  background-color: #4154f1;
+  border-color: #4154f1;
+}
+form.row.g-3 .btn-primary:hover {
+  background-color: #2e3bbf;
+}
+form.row.g-3 .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+form.row.g-3 .btn-secondary:hover {
+  background-color: #5a6268;
+}
+form.row.g-3 .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #fff;
+}
+form.row.g-3 .btn-info:hover {
+  background-color: #0bb1d6;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+/* ========== TABLE DESIGN ========== */
+.table {
+  border-collapse: collapse !important;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  width: 100%;
+}
 
+.table thead th {
+  background-color: #000 !important; /* 🖤 Black Header */
+  color: #fff !important;             /* 🤍 White Text */
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 12px;
+  border-bottom: 2px solid #dee2e6;
+}
 
-        /* Define the pulse animation */
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 12px;
+  color: #212529;
+}
 
-        }
+/* Zebra + hover */
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+.table tbody tr:hover {
+  background-color: #eef1f7;
+}
 
-        #fixedButtonBranch {
-            position: relative;
-            top: 110px;
-            left: 1187px;
-        }
+/* Small action buttons */
+.table .btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+/* "No results" message */
+p.text-center.mt-3 {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+/* ========== DATATABLE UI ========== */
+.datatable-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
 
-        .card-body {
-            padding: 0 20px 20px 18px !important;
-        }
+.datatable-dropdown label {
+  font-size: 0.85rem;
+}
 
+.datatable-bottom {
+  margin-top: 10px;
+  padding: 10px 0;
+}
 
-        /* Define the pulse animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
+.datatable-pagination-list button {
+  border-radius: 6px !important;
+}
 
-            50% {
-                transform: scale(1.1);
-            }
+/* ========== MISC / SPACING FIXES ========== */
+.overflow-auto {
+  overflow: auto !important;
+  margin-top: 85px !important;
+}
 
-            100% {
-                transform: scale(1);
-            }
-        }
+.card-body {
+  padding: 0 20px 20px 18px !important;
+}
 
-        /* Define the click animation */
-        @keyframes clickEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
+/* ========== RESPONSIVE FIXES ========== */
+@media (max-width: 992px) {
+  form.row.g-3 {
+    padding: 15px;
+  }
+  .cardBranch {
+    margin-top: 70px !important;
+    padding: 15px !important;
+  }
+  .table thead {
+    font-size: 0.85rem;
+  }
+  .btn {
+    font-size: 0.85rem;
+  }
+}
 
-            50% {
-                transform: scale(0.9);
-                opacity: 0.7;
-            }
+/* ========== OPTIONAL DARK MODE ========== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #181818;
+    color: #f1f1f1;
+  }
+  .cardBranch {
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  .table thead th {
+    background-color: #343a40 !important;
+    color: #fff;
+  }
+  .table tbody tr:nth-child(even) {
+    background-color: #2a2f36;
+  }
+  .table tbody tr:hover {
+    background-color: #3a3f46;
+  }
+  form.row.g-3 {
+    background: #2a2f36;
+    border-color: #444;
+  }
+  form.row.g-3 .form-label {
+    color: #eee;
+  }
+}
 
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .company-name {
-            color: #000;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .mt-4 {
-            margin-top: 1.5rem !important;
-            margin-right: 214px;
-        }
-
-        .datatable-dropdown label {
-            font-size: 0.9rem;
-        }
-
-        .datatable-info {
-            display: none;
-        }
-
-        .datatable-top {
-            width: 942px;
-
-        }
-
-        /* Card */
-        .cardBranch {
-            margin-bottom: 30px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-            background-color: white;
-            font-size: 0.8rem;
-            margin-top: 7px;
-        }
-
-        .company-name:active {
-            animation: clickEffect 0.s ease;
-            /* Apply the click effect animation on click */
-            color: #0056b3;
-            /* Darken color on click */
-        }
-
-        * {
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-        }
-
-        .req_span {
-            font-size: 10px;
-        }
-
-        .req_auth_span {
-            font-size: 10px;
-        }
     </style>
 
     <title>Destroy Workorders</title>

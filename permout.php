@@ -78,222 +78,236 @@ if ($resultData->num_rows > 0) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* Custom CSS to decrease font size of the table */
+    /* ==========================================================
+   WMS Unified CSS (Delivery, Pickup, Permout, Destroy)
+   Clean NiceAdmin + Bootstrap Look — No Logic Change
+   ========================================================== */
 
-        .overflow-auto {
-            overflow: auto !important;
-            margin-top: 92px !important;
-        }
+/* ===== Remove extra empty space above filters ===== */
+main.main {
+  margin-top: 20px !important; /* reduce global top space */
+  padding-top: 0 !important;
+}
 
-        .add {
-            /* cursor: pointer; */
-            margin-left: 976px;
-            margin-top: 85px;
-            margin-bottom: 103px;
-        }
+.cardBranch {
+  margin-top: 20px !important; /* reduce card gap */
+}
 
-        /* Basic styling for search bar */
-        input.btn.btn-success {
-            margin-left: 7px;
-            height: 41px;
-            padding: 2%;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            text-align: center;
-            justify-items: center;
+.card-body > form {
+  margin-top: 0 !important;    /* remove top gap inside filter box */
+  padding-top: 0 !important;
+}
 
-        }
+.row.mb-3:first-of-type {
+  margin-top: 0 !important;    /* title/add button row */
+}
 
-        .search-container {
-            margin: 50px;
-            margin-left: 320px;
-            margin-bottom: 3px !important;
-        }
-
-        #main {
-
-            margin-top: 0 !important;
-        }
-
-        input[type="text"] {
-            padding: 8px;
-            font-size: 0.9rem;
-            width: 363px;
-        }
-
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
-
-        }
-
-        .barcode {
-            height: 55px;
-            width: 250px;
-            position: relative;
-            left: -38px;
-        }
-
-        /* 
-        #main {
-            margin-top: 20px !important;
-            padding: 20px 30px;
-            transition: all 0.3s;
-        } */
-
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
-
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+.row.g-3.mb-3 {
+  margin-top: 0 !important;    /* search filter form row */
+}
 
 
-        /* Define the pulse animation */
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+/* ===== CARD + PAGE CONTAINER ===== */
+.cardBranch {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(1, 41, 112, 0.1) !important;
+  background-color: #fff !important;
+  margin-top: 90px !important;
+  padding: 25px !important;
+  font-size: 0.9rem;
+}
 
-        }
+.cardBranch h5.card-title {
+  color: #012970;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
 
-        #fixedButtonBranch {
-            position: relative;
-            top: 110px;
-            left: 1187px;
-        }
+.row.mb-3 {
+  align-items: center;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+/* ===== FILTER FORM ===== */
+form.row.g-3 {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 10px;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+form.row.g-3 .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #012970;
+}
 
-        .card-body {
-            padding: 0 20px 20px 18px !important;
-        }
+form.row.g-3 .form-select,
+form.row.g-3 .form-control {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border-color: #ced4da;
+}
 
+form.row.g-3 .form-select:focus,
+form.row.g-3 .form-control:focus {
+  border-color: #4154f1;
+  box-shadow: 0 0 0 0.15rem rgba(65, 84, 241, 0.25);
+}
 
-        /* Define the pulse animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
+/* Filter buttons */
+form.row.g-3 .btn {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 6px 14px;
+}
 
-            50% {
-                transform: scale(1.1);
-            }
+form.row.g-3 .btn-primary {
+  background-color: #4154f1;
+  border-color: #4154f1;
+}
+form.row.g-3 .btn-primary:hover {
+  background-color: #2e3bbf;
+}
+form.row.g-3 .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #fff;
+}
+form.row.g-3 .btn-info:hover {
+  background-color: #0bb1d6;
+}
+form.row.g-3 .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+form.row.g-3 .btn-secondary:hover {
+  background-color: #5a6268;
+}
 
-            100% {
-                transform: scale(1);
-            }
-        }
+/* ===== TABLE DESIGN ===== */
+.table {
+  border-collapse: collapse !important;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  width: 100%;
+}
 
-        /* Define the click animation */
-        @keyframes clickEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
+.table thead th {
+  background-color: #000 !important; /* 🖤 Black header */
+  color: #fff !important;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 12px;
+  border-bottom: 2px solid #dee2e6;
+}
 
-            50% {
-                transform: scale(0.9);
-                opacity: 0.7;
-            }
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 12px;
+  color: #212529;
+}
 
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
 
-        .company-name {
-            color: #000;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
+.table tbody tr:hover {
+  background-color: #eef1f7;
+}
 
-        .mt-4 {
-            margin-top: 1.5rem !important;
-            margin-right: 214px;
-        }
+/* Table action buttons */
+.table .btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
 
-        .datatable-dropdown label {
-            font-size: 0.9rem;
-        }
+/* "No results found" message */
+p.text-center.mt-3 {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+}
 
-        .datatable-info {
-            display: none;
-        }
+/* ===== DATATABLE STYLING ===== */
+.datatable-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
 
-        .datatable-top {
-            width: 942px;
+.datatable-dropdown label {
+  font-size: 0.85rem;
+}
 
-        }
+.datatable-bottom {
+  margin-top: 10px;
+  padding: 10px 0;
+}
 
-        /* Card */
-        .cardBranch {
-            margin-bottom: 30px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-            background-color: white;
-            font-size: 0.8rem;
-            margin-top: 7px;
-        }
+/* ===== PAGE ELEMENT SPACING ===== */
+.col-6.text-end.mt-2 button {
+  height: 38px;
+}
 
-        .company-name:active {
-            animation: clickEffect 0.s ease;
-            /* Apply the click effect animation on click */
-            color: #0056b3;
-            /* Darken color on click */
-        }
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+  background-color: #fcfcfc;
+}
 
-        * {
-            margin: 0;
+/* ===== RESPONSIVE FIXES ===== */
+@media (max-width: 992px) {
+  form.row.g-3 {
+    padding: 15px;
+  }
+  .cardBranch {
+    margin-top: 70px !important;
+    padding: 15px !important;
+  }
+  .table thead {
+    font-size: 0.85rem;
+  }
+  .btn {
+    font-size: 0.85rem;
+  }
+}
 
-            padding: 0;
+/* ===== OPTIONAL DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #181818;
+    color: #f1f1f1;
+  }
+  .cardBranch {
+    background-color: #212529 !important;
+    color: #f8f9fa !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  .table thead th {
+    background-color: #343a40 !important;
+    color: #fff;
+  }
+  .table tbody tr:nth-child(even) {
+    background-color: #2a2f36;
+  }
+  .table tbody tr:hover {
+    background-color: #3a3f46;
+  }
+  form.row.g-3 {
+    background: #2a2f36;
+    border-color: #444;
+  }
+  form.row.g-3 .form-label {
+    color: #eee;
+  }
+}
 
-            box-sizing: border-box;
-        }
-
-        .req_span {
-            font-size: 10px;
-        }
-
-        .req_auth_span {
-            font-size: 10px;
-        }
     </style>
 
     <title>Permout Workorders</title>

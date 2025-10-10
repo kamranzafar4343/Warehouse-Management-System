@@ -77,223 +77,155 @@ if ($resultData->num_rows > 0) {
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    
     <style>
-        /* Custom CSS to decrease font size of the table */
+/* ===== Remove extra empty space above filters ===== */
+main.main {
+  margin-top: 20px !important; /* reduce global top space */
+  padding-top: 0 !important;
+}
 
-        .overflow-auto {
-            overflow: auto !important;
-            margin-top: 92px !important;
-        }
+.cardBranch {
+  margin-top: 20px !important; /* reduce card gap */
+}
 
-        .add {
-            /* cursor: pointer; */
-            margin-left: 976px;
-            margin-top: 85px;
-            margin-bottom: 103px;
-        }
+.card-body > form {
+  margin-top: 0 !important;    /* remove top gap inside filter box */
+  padding-top: 0 !important;
+}
 
-        /* Basic styling for search bar */
-        input.btn.btn-success {
-            margin-left: 7px;
-            height: 41px;
-            padding: 2%;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            text-align: center;
-            justify-items: center;
+.row.mb-3:first-of-type {
+  margin-top: 0 !important;    /* title/add button row */
+}
 
-        }
+.row.g-3.mb-3 {
+  margin-top: 0 !important;    /* search filter form row */
+}
 
-        .search-container {
-            margin: 50px;
-            margin-left: 320px;
-            margin-bottom: 3px !important;
-        }
+/* === UNIVERSAL SEARCH + TABLE LOOK FOR ALL PAGES === */
 
-        #main {
+/* General card & section cleanup */
+.cardBranch {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 15px rgba(1, 41, 112, 0.1) !important;
+  background: #fff !important;
+  margin-top: 80px !important;
+  padding: 20px 25px !important;
+}
 
-            margin-top: 0 !important;
-        }
+/* Card title + button row */
+.cardBranch .row.mb-3 {
+  align-items: center;
+}
 
-        input[type="text"] {
-            padding: 8px;
-            font-size: 0.9rem;
-            width: 363px;
-        }
+.cardBranch h5.card-title {
+  color: #012970;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
 
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
+.cardBranch .btn-primary {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+}
 
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+/* Form layout */
+form.row.g-3 {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 10px;
+}
 
-        }
+form.row.g-3 .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #012970;
+}
 
-        .barcode {
-            height: 55px;
-            width: 250px;
-            position: relative;
-            left: -38px;
-        }
+form.row.g-3 .form-control,
+form.row.g-3 .form-select {
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
 
-        /* 
-        #main {
-            margin-top: 20px !important;
-            padding: 20px 30px;
-            transition: all 0.3s;
-        } */
+form.row.g-3 .btn {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+/* Search and filter button color harmony */
+form.row.g-3 .btn-primary {
+  background-color: #4154f1;
+  border-color: #4154f1;
+}
+form.row.g-3 .btn-primary:hover {
+  background-color: #2f3cb5;
+}
+form.row.g-3 .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #fff;
+}
+form.row.g-3 .btn-secondary {
+  background-color: #6c757d;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+/* DataTable / Table section */
+.table {
+  border-collapse: collapse !important;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
 
+/* Make table header background light and text black */
+.table thead th {
+  background-color: #e9ecef !important; /* light gray header background */
+  color: #000 !important;                /* black text */
+  font-weight: 600 !important;
+  text-transform: capitalize;
+  vertical-align: middle !important;
+}
+.table tbody tr:hover {
+  background-color: #f6f9ff !important;
+}
 
-        /* Define the pulse animation */
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+.table td,
+.table th {
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+}
 
-        }
+.table .btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
 
-        #fixedButtonBranch {
-            position: relative;
-            top: 110px;
-            left: 1187px;
-        }
+/* “No results” message */
+p.text-center.mt-3 {
+  font-size: 0.95rem;
+  color: #555;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+/* Responsive fixes */
+@media (max-width: 768px) {
+  form.row.g-3 {
+    padding: 15px;
+  }
+  .cardBranch {
+    margin-top: 60px !important;
+  }
+  .table thead {
+    font-size: 0.85rem;
+  }
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
-
-        .card-body {
-            padding: 0 20px 20px 18px !important;
-        }
-
-
-        /* Define the pulse animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Define the click animation */
-        @keyframes clickEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(0.9);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .company-name {
-            color: #000;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .mt-4 {
-            margin-top: 1.5rem !important;
-            margin-right: 214px;
-        }
-
-        .datatable-dropdown label {
-            font-size: 0.9rem;
-        }
-
-        .datatable-info {
-            display: none;
-        }
-
-        .datatable-top {
-            width: 942px;
-
-        }
-
-        /* Card */
-        .cardBranch {
-            margin-bottom: 30px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-            background-color: white;
-            font-size: 0.8rem;
-            margin-top: 7px;
-        }
-
-        .company-name:active {
-            animation: clickEffect 0.s ease;
-            /* Apply the click effect animation on click */
-            color: #0056b3;
-            /* Darken color on click */
-        }
-
-        * {
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-        }
-
-        .req_span {
-            font-size: 10px;
-        }
-
-        .req_auth_span {
-            font-size: 10px;
-        }
     </style>
 
     <title>Delivery Workorders</title>
