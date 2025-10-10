@@ -183,13 +183,14 @@ form.row.g-3 .btn-secondary {
   margin-top: 10px;
 }
 
-/* Make table header background light and text black */
 .table thead th {
-  background-color: #e9ecef !important; /* light gray header background */
-  color: #000 !important;                /* black text */
-  font-weight: 600 !important;
-  text-transform: capitalize;
-  vertical-align: middle !important;
+  background-color: #000 !important;  /* 🖤 Black header */
+  color: #fff !important;              /* 🤍 White text */
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 10px;
+  border-bottom: 2px solid #dee2e6;
 }
 .table tbody tr:hover {
   background-color: #f6f9ff !important;
