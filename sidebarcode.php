@@ -32,28 +32,35 @@
                 </a>
             </li><!-- End Items Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link <?php echo ($currentPage == 'order.php' || $currentPage == 'pickup.php' || $currentPage == 'permout.php' || $currentPage == 'destroy.php') ? 'active' : 'collapsed'; ?>" data-bs-toggle="collapse" data-bs-target="#forms-nav" href="#">
-                    <i class="ri-list-ordered"></i><span>Work Orders</span>
-                    <i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="forms-nav" class="nav-content collapse <?php echo ($currentPage == 'order.php' || $currentPage == 'pickup.php' || $currentPage == 'permout.php' || $currentPage == 'destroy.php' || $currentPage == 'access.php' || $currentPage == 'supplies.php') ? 'show' : ''; ?>" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a class="nav-link <?php echo ($currentPage == 'order.php') ? 'active' : ''; ?>" href="order.php">
-                            <i class="bi bi-circle"></i><span>Delivery</span>
-                        </a>
-                        <a class="nav-link <?php echo ($currentPage == 'pickup.php') ? 'active' : ''; ?>" href="pickup.php">
-                            <i class="bi bi-circle"></i><span>Pickup</span>
-                        </a>
-                        <a class="nav-link <?php echo ($currentPage == 'permout.php') ? 'active' : ''; ?>" href="permout.php">
-                            <i class="bi bi-circle"></i><span>Perm Out</span>
-                        </a>
-                        <a class="nav-link <?php echo ($currentPage == 'destroy.php') ? 'active' : ''; ?>" href="destroy.php">
-                            <i class="bi bi-circle"></i><span>Destroy</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+         
+         <li class="nav-item">
+    <a class="nav-link <?php echo ($currentPage == 'order.php' || $currentPage == 'pickup.php' || $currentPage == 'permout.php' || $currentPage == 'destroy.php') ? 'active' : 'collapsed'; ?>" 
+       data-bs-toggle="collapse" 
+       href="#workorders-collapse" 
+       role="button" 
+       aria-expanded="false" 
+       aria-controls="workorders-collapse">
+        <i class="ri-list-ordered"></i><span>Work Orders</span>
+        <i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="workorders-collapse" class="nav-content collapse <?php echo ($currentPage == 'order.php' || $currentPage == 'pickup.php' || $currentPage == 'permout.php' || $currentPage == 'destroy.php') ? 'show' : ''; ?>" data-bs-parent="#sidebar-nav">
+        <li>
+            <a class="nav-link <?php echo ($currentPage == 'order.php') ? 'active' : ''; ?>" href="order.php">
+                <i class="bi bi-circle"></i><span>Delivery</span>
+            </a>
+            <a class="nav-link <?php echo ($currentPage == 'pickup.php') ? 'active' : ''; ?>" href="pickup.php">
+                <i class="bi bi-circle"></i><span>Pickup</span>
+            </a>
+            <a class="nav-link <?php echo ($currentPage == 'permout.php') ? 'active' : ''; ?>" href="permout.php">
+                <i class="bi bi-circle"></i><span>Perm Out</span>
+            </a>
+            <a class="nav-link <?php echo ($currentPage == 'destroy.php') ? 'active' : ''; ?>" href="destroy.php">
+                <i class="bi bi-circle"></i><span>Destroy</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
 
             <li class="nav-item">
                 <a class="nav-link <?php echo ($currentPage == 'racks.php') ? 'active' : 'collapsed'; ?>" href="racks.php">
