@@ -103,26 +103,11 @@ $DeptCount = $rowDept['dept_count'];
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Custom CSS to decrease font size of the table */
+   .h6, h6 {
+    font-size: 2rem;
+    margin-left: 12px;
+}
 
-    .add {
-      cursor: pointer;
-      width: 143px;
-      margin-left: 844px;
-      margin-top: 26px;
-    }
-  </style>
-
-  <style>
-    .profileimage {
-      margin-right: 24px;
-    }
-
-    .navbar-image {
-      width: 50px;
-      height: 50px;
-      margin-right: 7px;
-    }
   </style>
 
   <!-- Template Main CSS File -->
@@ -213,311 +198,149 @@ include "sidebarcode.php";
     </nav>
   </div><!-- End Page Title -->
 
-  <section class="section dashboard">
+<section class="section dashboard">
     <div class="row">
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+            <div class="row">
 
-      <!-- Left side columns -->
-      <div class="col-lg-12">
-        <div class="row">
-
-          <!-- Sales Card -->
-          <div class="col-xxl-4 col-md-4">
-            <div class="card info-card sales-card">
-
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title-indexphp">Pending Workorders </h5>
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <img src="assets/img/pending.png" alt="">
-                  </div>
-                  <div class="ps-3">
-                    <h6> 9 </h6>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div><!-- End Sales Card -->
-
-          <!-- Revenue Card -->
-          <div class="col-xxl-4 col-md-4">
-            <div class="card info-card revenue-card">
-
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title-indexphp">Completed Workorder</h5>
-
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <img src="assets/img/complete.png" alt="">
-                  </div>
-                  <div class="ps-3">
-                    <h6><?php echo "12"; ?></h6>
-
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div><!-- End Revenue Card -->
-
-          <!-- Customers Card -->
-          <div class="col-xxl-4 col-xl-4">
-
-            <div class="card info-card revenue-card">
-
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title-indexphp">Total Workorders</h5>
-
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <img src="assets/img/icons8-order-27.png" alt="">
-                  </div>
-                  <div class="ps-3">
-                    <h6><?php echo "32"; ?></h6>
-
-
-                  </div>
+                <!-- Pending Workorders Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-primary rounded-circle p-3">
+                                <img src="assets/img/pending.png" alt="Pending" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Pending Workorders</h5>
+                                <h6>9</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-              </div>
+                <!-- Completed Workorders Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-success rounded-circle p-3">
+                                <img src="assets/img/complete.png" alt="Complete" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Completed Workorders</h5>
+                                <h6>12</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Workorders Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-info rounded-circle p-3">
+                                <img src="assets/img/icons8-order-27.png" alt="Order" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Total Workorders</h5>
+                                <h6>32</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-          </div><!-- End Customers Card -->
+            <div class="row">
 
-
-
-
-          <div class="row">
-
-            <!-- Left side columns -->
-            <div class="col-lg-12">
-              <div class="row">
-
-                <!-- Sales Card -->
-                <div class="col-xxl-4 col-md-4">
-                  <div class="card info-card customers-card">
-
-                    <div class="filter">
-                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li class="dropdown-header text-start">
-                          <h6>Filter</h6>
-                        </li>
-
-                        <li><a class="dropdown-item" href="#">Today</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="card-body">
-                      <h5 class="card-title-indexphp">Cancelled Workorders </h5>
-                      <div class="d-flex align-items-center">
-                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <img src="assets/img/icons8-cancel-26.png" alt="">
+                <!-- Cancelled Workorders Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-danger rounded-circle p-3">
+                                <img src="assets/img/icons8-cancel-26.png" alt="Cancel" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Cancelled Workorders</h5>
+                                <h6>2</h6>
+                            </div>
                         </div>
-                        <div class="ps-3">
-                          <h6><?php echo "2"; ?></h6>
-                        </div>
-                      </div>
                     </div>
+                </div>
 
-                  </div>
-                </div><!-- End Sales Card -->
-
-                <!-- Revenue Card -->
-                <div class="col-xxl-4 col-md-4">
-                  <div class="card info-card revenue-card">
-
-                    <div class="filter">
-                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li class="dropdown-header text-start">
-                          <h6>Filter</h6>
-                        </li>
-
-                        <li><a class="dropdown-item" href="#">Today</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="card-body">
-                      <h5 class="card-title-indexphp">Regular Workorder</h5>
-
-                      <div class="d-flex align-items-center">
-                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <img src="assets/img/icons8-regular-document-27 (1).png" alt="">
+                <!-- Regular Workorders Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-warning rounded-circle p-3">
+                                <img src="assets/img/icons8-regular-document-27 (1).png" alt="Regular" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Regular Workorders</h5>
+                                <h6>20</h6>
+                            </div>
                         </div>
-                        <div class="ps-3">
-                          <h6><?php echo "20"; ?></h6>
-
-
-                        </div>
-                      </div>
                     </div>
+                </div>
 
-                  </div>
-                </div><!-- End Revenue Card -->
-
-                <!-- Customers Card -->
-                <div class="col-xxl-4 col-xl-4">
-
-                  <div class="card info-card customers-card">
-
-                    <div class="filter">
-                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li class="dropdown-header text-start">
-                          <h6>Filter</h6>
-                        </li>
-
-                        <li><a class="dropdown-item" href="#">Today</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                      </ul>
-                    </div>
-
-                    <div class="card-body">
-                      <h5 class="card-title-indexphp">Urgent Workorders</h5>
-
-                      <div class="d-flex align-items-center">
-                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <img src="assets/img/Time-Clock-Fire--Streamline-Ultimate.png" alt="">
+                <!-- Urgent Workorders Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-danger rounded-circle p-3">
+                                <img src="assets/img/Time-Clock-Fire--Streamline-Ultimate.png" alt="Urgent" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Urgent Workorders</h5>
+                                <h6>10</h6>
+                            </div>
                         </div>
-                        <div class="ps-3">
-                          <h6><?php echo "10"; ?></h6>
-
-
-                        </div>
-                      </div>
-
                     </div>
-                  </div>
+                </div>
 
-                </div><!-- End Customers Card -->
-                <?php
-                // Check if the user is labour
-                if ($_SESSION['role'] == 'Labour' && $_SESSION['role'] == 'Labour') {
-                ?>
-                  <!-- Revenue Card -->
-                  <div class="col-xxl-4 col-md-4">
-                    <div class="card info-card sales-card">
+            </div>
 
-                      <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                          <li class="dropdown-header text-start">
-                            <h6>Filter</h6>
-                          </li>
-
-                          <li><a class="dropdown-item" href="#">Today</a></li>
-                          <li><a class="dropdown-item" href="#">This Month</a></li>
-                          <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                      </div>
-
-                      <div class="card-body">
-                        <h5 class="card-title-indexphp">Assigned Tasks</h5>
-
-                        <div class="d-flex align-items-center">
-                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <img src="assets/img/Task-List-Assign--Streamline-Freehand (2).png" alt="">
-                          </div>
-                          <div class="ps-3">
-                            <h6><?php echo "20"; ?></h6>
-
-
-                          </div>
+            <?php
+            // If the user is Labour, show assigned and completed tasks
+            if ($_SESSION['role'] == 'Labour') {
+            ?>
+                <!-- Assigned Tasks Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-primary rounded-circle p-3">
+                                <img src="assets/img/Task-List-Assign--Streamline-Freehand (2).png" alt="Assigned" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Assigned Tasks</h5>
+                                <h6>20</h6>
+                            </div>
                         </div>
-                      </div>
-
                     </div>
-                  </div><!-- End Revenue Card -->
+                </div>
 
-                  <!-- Customers Card -->
-                  <div class="col-xxl-4 col-xl-4">
-
-                    <div class="card info-card revenue-card">
-
-                      <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                          <li class="dropdown-header text-start">
-                            <h6>Filter</h6>
-                          </li>
-
-                          <li><a class="dropdown-item" href="#">Today</a></li>
-                          <li><a class="dropdown-item" href="#">This Month</a></li>
-                          <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                      </div>
-
-                      <div class="card-body">
-                        <h5 class="card-title-indexphp">Completed Tasks</h5>
-
-                        <div class="d-flex align-items-center">
-                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <img src="assets/img/complete.png" alt="">
-                          </div>
-                          <div class="ps-3">
-                            <h6><?php echo "10"; ?></h6>
-
-
-                          </div>
+                <!-- Completed Tasks Card -->
+                <div class="col-xxl-4 col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="card-icon bg-success rounded-circle p-3">
+                                <img src="assets/img/complete.png" alt="Complete" width="30">
+                            </div>
+                            <div class="ps-3">
+                                <h5 class="card-title">Completed Tasks</h5>
+                                <h6>10</h6>
+                            </div>
                         </div>
-
-                      </div>
                     </div>
+                </div>
+            <?php
+            }
+            ?>
 
-                  </div><!-- End Customers Card -->
-                <?php
-                }
-                ?>
+        </div>
+    </div>
+</section>
 
-
-
-  </section>
 
 </main><!-- End #main -->
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

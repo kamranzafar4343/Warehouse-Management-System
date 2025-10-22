@@ -95,14 +95,167 @@ $result = $conn->query($sql);
   <link rel="stylesheet" href="css/style.css">
   
   <style>
-    /* Custom CSS to decrease font size of the table */
+    /* ===== Remove extra empty space above filters ===== */
+main.main {
+  margin-top: 20px !important; /* reduce global top space */
+  padding-top: 0 !important;
+}
 
-    .add {
-      cursor: pointer;
-      width: 143px;
-      margin-left: 844px;
-      margin-top: 26px;
-    }
+.cardBranch {
+  margin-top: 20px !important; /* reduce card gap */
+}
+
+.card-body > form {
+  margin-top: 0 !important; /* remove top gap inside filter box */
+  padding-top: 0 !important;
+}
+
+.row.mb-3:first-of-type {
+  margin-top: 0 !important; /* title/add button row */
+}
+
+.row.g-3.mb-3 {
+  margin-top: 0 !important; /* search filter form row */
+}
+
+/* === UNIVERSAL SEARCH + TABLE LOOK FOR ALL PAGES === */
+
+/* General card & section cleanup */
+.cardBranch {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 15px rgba(1, 41, 112, 0.1) !important;
+  background: #fff !important;
+  margin-top: 80px !important;
+  padding: 20px 25px !important;
+}
+
+/* Card title + button row */
+.cardBranch .row.mb-3 {
+  align-items: center;
+}
+
+.cardBranch h5.card-title {
+  color: #012970;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.cardBranch .btn-primary {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+}
+
+/* Form layout */
+form.row.g-3 {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 10px;
+}
+
+form.row.g-3 .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #012970;
+}
+
+form.row.g-3 .form-control,
+form.row.g-3 .form-select {
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
+
+form.row.g-3 .btn {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Search and filter button color harmony */
+form.row.g-3 .btn-primary {
+  background-color: #4154f1;
+  border-color: #4154f1;
+}
+
+form.row.g-3 .btn-primary:hover {
+  background-color: #2f3cb5;
+}
+
+form.row.g-3 .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #fff;
+}
+
+form.row.g-3 .btn-secondary {
+  background-color: #6c757d;
+}
+
+/* DataTable / Table section */
+.table {
+  border-collapse: collapse !important;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.table thead th {
+  background-color: #000 !important; /* 🖤 Black header */
+  color: #fff !important; /* 🤍 White text */
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 10px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+  background-color: #f6f9ff !important;
+}
+
+.table td,
+.table th {
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+}
+
+.table .btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+/* “No results” message */
+p.text-center.mt-3 {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  form.row.g-3 {
+    padding: 15px;
+  }
+
+  .cardBranch {
+    margin-top: 60px !important;
+  }
+
+  .table thead {
+    font-size: 0.85rem;
+  }
+}
+
+.col-14{
+      margin-top: 86px !important;
+}
+
+body{
+    background-color: white !important;
+}
   </style>
 
   <!-- Template Main CSS File -->

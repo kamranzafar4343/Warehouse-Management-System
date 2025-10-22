@@ -3,11 +3,11 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['email'])) {
+// if (!isset($_SESSION['email'])) {
   // If not logged in, redirect to login page
-  header("Location: pages-login.php");
-  exit();
-}
+//   header("Location: pages-login.php");
+//   exit();
+// }
 
 // Include the database connection
 include 'config/db.php'; 
@@ -25,12 +25,12 @@ if ($resultData->num_rows > 0) {
   $userRole = $row2['role']; // Assuming you have a 'role' column in the 'register' table
 }
 
-// Check if the user is an admin, otherwise redirect
-if (isset($_SESSION['role']) &&$_SESSION['role'] != 'admin') {
-  // If the user is not an Admin, redirect to index page
-  header("Location: index.php");
-  exit();
-}
+// // Check if the user is an admin, otherwise redirect
+// if (isset($_SESSION['role']) &&$_SESSION['role'] != 'admin') {
+//   // If the user is not an Admin, redirect to index page
+//   header("Location: index.php");
+//   exit();
+// }
 
 if (isset($_POST['register'])) {
     // Get form data and sanitize inputs

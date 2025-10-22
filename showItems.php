@@ -72,312 +72,154 @@ $result = $conn->query($sql);
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Custom CSS to decrease font size of the table */
+      /* ===== Remove extra empty space above filters ===== */
+main.main {
+  margin-top: 20px !important; /* reduce global top space */
+  padding-top: 0 !important;
+}
 
-        /* Basic styling for search bar */
-        input.btn.btn-success {
-            margin-left: 7px;
-            height: 41px;
-            padding: 2%;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            text-align: center;
-            justify-items: center;
+.cardBranch {
+  margin-top: 20px !important; /* reduce card gap */
+}
 
-        }
+.card-body > form {
+  margin-top: 0 !important;    /* remove top gap inside filter box */
+  padding-top: 0 !important;
+}
 
-        .search-container {
-            margin: 50px;
-            margin-left: 320px;
-            margin-bottom: 3px !important;
-        }
+.row.mb-3:first-of-type {
+  margin-top: 0 !important;    /* title/add button row */
+}
 
-        #main {
+.row.g-3.mb-3 {
+  margin-top: 0 !important;    /* search filter form row */
+}
 
-            margin-top: 0 !important;
-        }
+/* === UNIVERSAL SEARCH + TABLE LOOK FOR ALL PAGES === */
 
-        input[type="text"] {
-            padding: 8px;
-            font-size: 0.9rem;
-            width: 363px;
-        }
+/* General card & section cleanup */
+.cardBranch {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 15px rgba(1, 41, 112, 0.1) !important;
+  background: #fff !important;
+  margin-top: 80px !important;
+  padding: 20px 25px !important;
+}
 
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
+/* Card title + button row */
+.cardBranch .row.mb-3 {
+  align-items: center;
+}
 
-        .card-body {
-            margin-left: 37px !important;
-        }
+.cardBranch h5.card-title {
+  color: #012970;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
 
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
-        }
+.cardBranch .btn-primary {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+/* Form layout */
+form.row.g-3 {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 10px;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+form.row.g-3 .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #012970;
+}
 
+form.row.g-3 .form-control,
+form.row.g-3 .form-select {
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
 
-        /* Define the pulse animation */
-        .pagetitle {
-            display: flex;
-            width: 989px;
-            flex-direction: column;
+form.row.g-3 .btn {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
 
-        }
+/* Search and filter button color harmony */
+form.row.g-3 .btn-primary {
+  background-color: #4154f1;
+  border-color: #4154f1;
+}
+form.row.g-3 .btn-primary:hover {
+  background-color: #2f3cb5;
+}
+form.row.g-3 .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #fff;
+}
+form.row.g-3 .btn-secondary {
+  background-color: #6c757d;
+}
 
+/* DataTable / Table section */
+.table {
+  border-collapse: collapse !important;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
 
-        #fixedButtonBranch {
-            position: relative;
-            top: 17px;
-            left: 0px;
-        }
+.table thead th {
+  background-color: #000 !important;  /* 🖤 Black header */
+  color: #fff !important;              /* 🤍 White text */
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 10px;
+  border-bottom: 2px solid #dee2e6;
+}
+.table tbody tr:hover {
+  background-color: #f6f9ff !important;
+}
 
-        .row {
-            margin-left: 52px;
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y)* -1);
-            margin-right: calc(var(--bs-gutter-x)* 1.5);
-            margin-left: calc(var(--bs-gutter-x)* 0.2);
-        }
+.table td,
+.table th {
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+}
 
-        .datatable-container {
-            border: none;
-            margin-left: 12px;
-            margin-top: 12px;
-            /* table-layout: fixed; */
-        }
+.table .btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
 
+/* “No results” message */
+p.text-center.mt-3 {
+  font-size: 0.95rem;
+  color: #555;
+}
 
-        /* Define the pulse animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
+/* Responsive fixes */
+@media (max-width: 768px) {
+  form.row.g-3 {
+    padding: 15px;
+  }
+  .cardBranch {
+    margin-top: 60px !important;
+  }
+  .table thead {
+    font-size: 0.85rem;
+  }
+}
 
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Define the click animation */
-        @keyframes clickEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(0.9);
-                opacity: 0.7;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .company-name {
-            color: #000;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .datatable-dropdown label {
-            font-size: 0.9rem;
-        }
-
-        .datatable-info {
-            display: none;
-        }
-
-        /* Card */
-        .cardBranch {
-            margin-bottom: 30px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-            background-color: white;
-            font-size: 0.8rem;
-
-
-        }
-
-        .company-name:active {
-            animation: clickEffect 0.s ease;
-            /* Apply the click effect animation on click */
-            color: #0056b3;
-            /* Darken color on click */
-        }
-
-        * {
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-        }
-
-        .custom2 {
-            font-size: 0.8rem;
-            border-radius: 7px;
-            padding-top: 14px;
-            padding-bottom: 14px;
-            padding-right: 34px;
-            padding-left: 40px;
-            margin-left: 20px;
-
-            /* table-layout: fixed; */
-
-            /* overflow: hidden; */
-            /* text-overflow: ellipsis; */
-            /* white-space: nowrap; */
-        }
-
-        tbody,
-        td,
-        tr {
-            word-wrap: break-word;
-            max-width: 200px;
-        }
-
-        .datatable-table>tbody>tr>td,
-        .datatable-table>tbody>tr>th,
-        .datatable-table>tfoot>tr>td,
-        .datatable-table>tfoot>tr>th,
-        .datatable-table>thead>tr>td,
-        .datatable-table>thead>tr>th {
-            vertical-align: top;
-            padding: 8px 2px;
-        }
-
-        .image-circle {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center */
-            align-items: center;
-            text-align: center;
-        }
-
-
-        .navbar-image {
-            width: 50px;
-            height: 50px;
-            margin-right: 7px;
-        }
-
-        .headerbox {
-
-            display: flex;
-        }
-
-        .datatable-table>thead>tr>th {
-            vertical-align: bottom;
-            text-align: left;
-            border-bottom: 0px solid #d9d9d9;
-        }
-
-        .pagetitleinside button {
-            width: 150px;
-        }
-
-        .datatable-pagination {
-            margin-left: 50px;
-        }
-
-        .datatable-top {
-            width: 942px;
-        }
-
-        .barcode {
-            height: 37px;
-            width: 167px;
-            position: relative;
-            left: -18px;
-        }
-
-        /* styles for card */
-        .card-body {
-            padding: 18px !important;
-            padding-left: 0 !important;
-            padding-top: 0 !important;
-        }
-
-        /*datatable top css*/
-        .datatable-top,
-        .datatable-bottom {
-            padding: 12px 10px;
-            margin-top: 4px;
-            display: flex !important;
-        }
-
-        .card-title {
-            padding: 5px 0 0px 0;
-            font-size: 23px;
-            font-weight: 500;
-            position: relative;
-            left: 11px;
-            color: #012970;
-            margin-top: 14px;
-            font-family: "Poppins", sans-serif;
-            /* font-family: "Poppins", sans-serif; */
-            width: 424px !important;
-        }
-
-        .datatable-input {
-
-            width: 240px;
-            height: 35px;
-            font-size: 0.8rem;
-            margin-left: 401px;
-            outline: none;
-
-
-
-            font-size: 17px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: -25px;
-        }
-
-        .datatable-search {
-            margin-left: 485px !important;
-        }
-
-        /* .custom-header-col-name{
-        margin-right: 1000px;
-    } */
     </style>
 
     <!-- Template Main CSS File -->
